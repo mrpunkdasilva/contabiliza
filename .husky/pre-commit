@@ -1,2 +1,4 @@
-#!/usr/bin/env sh
-npm run lint-staged
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
