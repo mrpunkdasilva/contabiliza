@@ -2,7 +2,7 @@
   "name": "contabiliza",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -14,7 +14,10 @@
     "test:staged": "jest --passWithNoTests",
     "test:ci": "npm test -- --coverage",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
-    "prepare": "husky install"
+    "lint": "eslint . --ext .ts,.tsx,.js --fix",
+    "lint:types": "tsc --noEmit",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -25,8 +28,10 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
     "@vitejs/plugin-react": "^4.5.2",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "git-commit-msg-linter": "^5.0.8",
@@ -34,12 +39,12 @@
     "husky": "^9.1.7",
     "jest": "^30.0.3",
     "lint-staged": "^16.1.2",
+    "npm-check": "^6.0.1",
     "prettier": "^3.6.2",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
-    "vite": "^7.0.0",
-    "npm-check": "^6.0.1"
+    "vite": "^7.0.0"
   }
 }

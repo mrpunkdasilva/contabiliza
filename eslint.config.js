@@ -1,19 +1,19 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
+import js from "@eslint/js";
+import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config([
   {
-    ignores: ['dist/**/*', 'node_modules/**/*'],
+    ignores: ["dist/**/*", "node_modules/**/*"],
   },
   {
-    files: ['**/*.{ts,tsx,js,jsx}'],
+    files: ["**/*.{ts,tsx,js,jsx}"],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
     },
     languageOptions: {
       ecmaVersion: 2020,
@@ -27,68 +27,68 @@ export default tseslint.config([
     rules: {
       // React Hooks rules
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 
       // Semicolon rules - OBRIGATÓRIO
-      semi: ['error', 'always'],
+      semi: ["error", "always"],
 
       // Quote rules - ASPAS DUPLAS OBRIGATÓRIAS
-      quotes: ['error', 'double', { avoidEscape: true }],
+      quotes: ["error", "double", { avoidEscape: true }],
 
       // Spacing rules - ESPAÇAMENTO
-      'space-before-blocks': ['error', 'always'],
-      'space-before-function-paren': [
-        'error',
+      "space-before-blocks": ["error", "always"],
+      "space-before-function-paren": [
+        "error",
         {
-          anonymous: 'always',
-          named: 'never',
-          asyncArrow: 'always',
+          anonymous: "always",
+          named: "never",
+          asyncArrow: "always",
         },
       ],
-      'space-in-parens': ['error', 'never'],
-      'space-infix-ops': 'error',
-      'space-unary-ops': [
-        'error',
+      "space-in-parens": ["error", "never"],
+      "space-infix-ops": "error",
+      "space-unary-ops": [
+        "error",
         {
           words: true,
           nonwords: false,
         },
       ],
-      'spaced-comment': [
-        'error',
-        'always',
+      "spaced-comment": [
+        "error",
+        "always",
         {
           line: {
-            markers: ['/'],
-            exceptions: ['-', '+'],
+            markers: ["/"],
+            exceptions: ["-", "+"],
           },
           block: {
-            markers: ['!'],
-            exceptions: ['*'],
+            markers: ["!"],
+            exceptions: ["*"],
             balanced: true,
           },
         },
       ],
-      'keyword-spacing': [
-        'error',
+      "keyword-spacing": [
+        "error",
         {
           before: true,
           after: true,
         },
       ],
-      'comma-spacing': [
-        'error',
+      "comma-spacing": [
+        "error",
         {
           before: false,
           after: true,
         },
       ],
-      'array-bracket-spacing': ['error', 'never'],
-      'object-curly-spacing': ['error', 'always'],
-      'computed-property-spacing': ['error', 'never'],
-      'func-call-spacing': ['error', 'never'],
-      'key-spacing': [
-        'error',
+      "array-bracket-spacing": ["error", "never"],
+      "object-curly-spacing": ["error", "always"],
+      "computed-property-spacing": ["error", "never"],
+      "func-call-spacing": ["error", "never"],
+      "key-spacing": [
+        "error",
         {
           beforeColon: false,
           afterColon: true,
@@ -97,7 +97,7 @@ export default tseslint.config([
 
       // Indentation - 2 espaços
       indent: [
-        'error',
+        "error",
         2,
         {
           SwitchCase: 1,
@@ -116,27 +116,27 @@ export default tseslint.config([
       ],
 
       // Line breaks and formatting
-      'eol-last': ['error', 'always'],
-      'no-trailing-spaces': 'error',
-      'no-multiple-empty-lines': [
-        'error',
+      "eol-last": ["error", "always"],
+      "no-trailing-spaces": "error",
+      "no-multiple-empty-lines": [
+        "error",
         {
           max: 2,
           maxEOF: 1,
           maxBOF: 0,
         },
       ],
-      'padded-blocks': ['error', 'never'],
+      "padded-blocks": ["error", "never"],
 
       // Other formatting rules
-      'comma-dangle': ['error', 'always-multiline'],
-      'brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      curly: ['error', 'all'],
-      'no-extra-parens': [
-        'error',
-        'all',
+      "comma-dangle": ["error", "always-multiline"],
+      "brace-style": ["error", "1tbs", { allowSingleLine: true }],
+      curly: ["error", "all"],
+      "no-extra-parens": [
+        "error",
+        "all",
         {
-          ignoreJSX: 'all',
+          ignoreJSX: "all",
           nestedBinaryExpressions: false,
         },
       ],
