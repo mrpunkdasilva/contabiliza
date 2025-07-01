@@ -1,5 +1,15 @@
 <script setup>
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+
+const goToSignup = () => {
+  router.push('/signup');
+};
+
+const goToLogin = () => {
+  router.push('/login');
+};
 </script>
 
 <template>
@@ -9,11 +19,11 @@
     <p>Comece a <strong>controlar</strong> seus ganhos hoje mesmo!</p>
 
     <div role="group">
-      <button @click="" class="button-primary">
+      <button @click="goToSignup" class="button-primary">
         Sign up
       </button>
 
-      <button class="button-secondary">
+      <button @click="goToLogin" class="button-secondary">
         Login
       </button>
     </div>

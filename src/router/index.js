@@ -3,6 +3,7 @@ import Home from '../pages/Home.vue';
 import About from '../pages/About.vue';
 import Signup from '../pages/Signup.vue';
 import Login from '../pages/Login.vue';
+import Dashboard from '../pages/Dashboard.vue';
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
   },
 ];
 
