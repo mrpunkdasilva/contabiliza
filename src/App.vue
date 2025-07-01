@@ -3,10 +3,7 @@
 </template>
 
 <style lang="scss">
-$color-dark-primary: #120F0F;
-$color-white-primary: #fff;
-$color-blue-primary: #0D40B1;
-$color-blue-200: #082C7B;
+@use './variables' as variables;
 
 @mixin heading($font-size, $font-weight, $color) {
   font-size: $font-size;
@@ -15,32 +12,32 @@ $color-blue-200: #082C7B;
 }
 
 h1 {
-  @include heading(48px, bold, $color-white-primary);
+  @include heading(48px, bold, variables.$color-white-primary);
 }
 
 h2 {
-  @include heading(40px, bold, $color-white-primary);
+  @include heading(40px, bold, variables.$color-white-primary);
 }
 
 h3 {
-  @include heading(32px, bold, $color-white-primary);
+  @include heading(32px, bold, variables.$color-white-primary);
 }
 
 h4 {
-  @include heading(24px, bold, $color-white-primary);
+  @include heading(24px, bold, variables.$color-white-primary);
 }
 
 h5 {
-  @include heading(20px, bold, $color-white-primary);
+  @include heading(20px, bold, variables.$color-white-primary);
 }
 
 h6 {
-  @include heading(16px, bold, $color-white-primary);
+  @include heading(16px, bold, variables.$color-white-primary);
 }
 
 @mixin paragraph {
   font-size: 16px;
-  color: $color-white-primary;
+  color: variables.$color-white-primary;
   line-height: 1.5;
 }
 
@@ -53,7 +50,7 @@ h6 {
 body {
   margin: 0;
   padding: 0;
-  background: $color-dark-primary;
+  background: variables.$color-dark-primary;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +70,7 @@ body {
   cursor: pointer;
   border-radius: 8px;
   background: transparent;
-  border: 2px solid $color-white-primary;
+  border: 2px solid variables.$color-white-primary;
   border-bottom: solid 5px;
   width: 200px;
   height: 60px;
@@ -87,14 +84,14 @@ body {
 
 .button-primary {
   @include button;
-  background-color: $color-blue-primary;
-  border-color: $color-blue-200;
+  background-color: variables.$color-blue-primary;
+  border-color: variables.$color-blue-200;
 }
 
 .button-secondary {
   @include button;
   background-color: transparent;
-  border-color: $color-blue-200;
+  border-color: variables.$color-blue-200;
 }
 
 </style>
