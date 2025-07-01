@@ -1,54 +1,57 @@
 <template>
-  <div>
-    <h1>Login</h1>
-    <p>This is the Login page.</p>
-    <button @click="goToDashboard" class="button-primary">Go to Dashboard</button>
+  <div class="login-page">
+    <div class="login-container">
+      <h2>Login</h2>
+      <form @submit.prevent="handleLogin">
+        <div class="input-group">
+          <UserIcon class="icon" />
+          <InputComponent
+            type="text"
+            placeholder="Username"
+            v-model="username"
+          />
+        </div>
+        <div class="input-group">
+          <KeyRoundIcon class="icon" />
+          <InputComponent
+            type="password"
+            placeholder="Password"
+            v-model="password"
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   </div>
 </template>
 
-<script setup>
-import { useRouter } from 'vue-router';
+<script>
+import { InputComponent } from '../components';
+import { UserIcon, KeyRoundIcon } from '../components/icons-interface';
 
-const router = useRouter();
-
-const goToDashboard = () => {
-  router.push('/dashboard');
+export default {
+  name: 'LoginPage',
+  components: {
+    InputComponent,
+    UserIcon,
+    KeyRoundIcon,
+  },
+  data() {
+    return {
+      username: '',
+      password: '',
+    };
+  },
+  methods: {
+    handleLogin() {
+      console.log('Login attempt with:', this.username, this.password);
+      // Implement your login logic here
+    },
+  },
 };
 </script>
 
-<style scoped>
-div {
-  text-align: center;
-  padding: 20px;
-}
+<style lang="scss" scoped>
+@import '../variables';
 
-h1 {
-  color: #0D40B1;
-}
-
-p {
-  color: #fff;
-}
-
-.button-primary {
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  text-transform: capitalize;
-  padding: 12px;
-  cursor: pointer;
-  border-radius: 8px;
-  background: #0D40B1;
-  border: 2px solid #082C7B;
-  border-bottom: solid 5px;
-  width: 200px;
-  height: 60px;
-  margin-top: 20px;
-
-  &:hover {
-    opacity: 0.9;
-    transition: 0.95s ease-in-out;
-    transform: translate(0px, -3px);
-  }
-}
 </style>

@@ -12,16 +12,4 @@ export default {
 </script>
 
 <style scoped>
-div {
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  color: #0D40B1;
-}
-
-p {
-  color: #fff;
-}
 </style>
