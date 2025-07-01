@@ -1,6 +1,7 @@
 <template>
   <main>
     <header>
+      <img :src="ContabilizaHorizontal" alt="Contabiliza"/>
       <h1>Sobre o Contabiliza</h1>
     </header>
 
@@ -27,6 +28,7 @@
 </template>
 
 <script setup>
+import ContabilizaHorizontal from "../assets/img/contabiliza.horizontal.png";
 </script>
 
 <style scoped>
@@ -40,6 +42,11 @@ main {
     display: flex;
     flex: 1;
     place-items: center;
+    flex-direction: column;
+
+    img {
+      width: 300px;
+    }
   }
 
   section {
