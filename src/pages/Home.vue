@@ -9,7 +9,7 @@
     <p>Comece a <strong>controlar</strong> seus ganhos hoje mesmo!</p>
 
     <div role="group">
-      <button class="button-primary">
+      <button @click="" class="button-primary">
         Sign up
       </button>
 
