@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../variables';
+@use "../../variables" as *;
 
 .input-wrapper {
   width: 100%;

@@ -1,4 +1,4 @@
-import InputComponent from './InputComponent.vue';
+import InputComponent from './Forms/InputComponent.vue';
 
 export {
   InputComponent,
