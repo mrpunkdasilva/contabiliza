@@ -5,6 +5,10 @@
 <style lang="scss">
 @use './variables' as variables;
 
+.sr-only {
+  display: none;
+}
+
 @mixin heading($font-size, $font-weight, $color) {
   font-size: $font-size;
   font-weight: $font-weight;
