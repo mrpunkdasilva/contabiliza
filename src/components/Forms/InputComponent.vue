@@ -1,11 +1,11 @@
 <template>
   <div class="input-wrapper">
     <input
-      :type="type"
-      :placeholder="placeholder"
-      :value="modelValue"
-      @input="updateValue($event.target.value)"
-      class="custom-input"
+        :type="type"
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="updateValue($event.target.value)"
+        class="custom-input"
     />
   </div>
 </template>
@@ -40,25 +40,25 @@ export default {
 
 .input-wrapper {
   width: 100%;
-}
 
-.custom-input {
-  width: 100%;
-  padding: 10px 15px;
-  border: $border-style var(--color-white-15);
-  border-radius: 5px;
-  background-color: transparent;
-  color: var(--color-white-94);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
+  .custom-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: $border-style $color-white-15;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--color-white-94);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.45s ease;
 
-  &:focus {
-    border-color: var(--color-white-94);
-  }
+    &:focus {
+      border-color: $color-white-primary;
+    }
 
-  &::placeholder {
-    color: var(--color-white-15);
+    &::placeholder {
+      color: var(--color-white-15);
+    }
   }
 }
 </style>
