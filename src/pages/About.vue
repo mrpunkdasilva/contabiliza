@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import ContabilizaHorizontal from "../assets/img/contabiliza.horizontal.png";
+import ContabilizaHorizontal from "../assets/img/contabiliza.branding.png";
 </script>
 
 <style scoped>

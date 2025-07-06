@@ -1,0 +1,256 @@
+// ========================================
+// CONTABILIZA BRAND COLORS - USAGE EXAMPLES
+// ========================================
+
+@import 'variables';
+
+// ========================================
+// BUTTON EXAMPLES
+// ========================================
+
+.btn-primary {
+  background-color: $button-primary-bg;
+  color: $color-white;
+  border: 1px solid $button-primary-bg;
+  transition: $transition-colors;
+  
+  &:hover {
+    background-color: $button-primary-hover;
+    border-color: $button-primary-hover;
+  }
+}
+
+.btn-secondary {
+  background-color: $button-secondary-bg;
+  color: $color-white;
+  border: 1px solid $button-secondary-bg;
+  transition: $transition-colors;
+  
+  &:hover {
+    background-color: $button-secondary-hover;
+    border-color: $button-secondary-hover;
+  }
+}
+
+.btn-success {
+  background-color: $button-success-bg;
+  color: $color-white;
+  border: 1px solid $button-success-bg;
+  transition: $transition-colors;
+  
+  &:hover {
+    background-color: $button-success-hover;
+    border-color: $button-success-hover;
+  }
+}
+
+// ========================================
+// CALENDAR COMPONENT EXAMPLE
+// ========================================
+
+.contabiliza-calendar {
+  background-color: $calendar-bg;
+  border: 1px solid $calendar-border;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-base;
+  
+  &__header {
+    background-color: $calendar-header-bg;
+    color: $color-white;
+    padding: $spacing-4;
+    border-radius: $border-radius-lg $border-radius-lg 0 0;
+  }
+  
+  &__ring {
+    background-color: $calendar-ring-color;
+    width: 3px;
+    height: 12px;
+    border-radius: $border-radius-sm;
+  }
+  
+  &__day {
+    width: 20px;
+    height: 20px;
+    border-radius: $border-radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-colors;
+    
+    &--active {
+      background-color: $calendar-day-active;
+      color: $color-white;
+    }
+    
+    &--inactive {
+      background-color: $calendar-day-inactive;
+      color: $contabiliza-gray-primary;
+    }
+  }
+}
+
+// ========================================
+// CURRENCY/MONEY COMPONENT EXAMPLE
+// ========================================
+
+.contabiliza-currency {
+  background: $currency-bg;
+  color: $currency-text;
+  border: 2px solid $currency-border;
+  border-radius: $border-radius-full;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  
+  &--large {
+    width: 60px;
+    height: 60px;
+    font-size: $font-size-2xl;
+  }
+  
+  &--small {
+    width: 30px;
+    height: 30px;
+    font-size: $font-size-sm;
+  }
+}
+
+// ========================================
+// STATUS INDICATORS EXAMPLE
+// ========================================
+
+.status-indicator {
+  padding: $spacing-1 $spacing-3;
+  border-radius: $border-radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  
+  &--active {
+    background-color: rgba($status-active, 0.1);
+    color: $status-active;
+    border: 1px solid rgba($status-active, 0.2);
+  }
+  
+  &--inactive {
+    background-color: rgba($status-inactive, 0.1);
+    color: $contabiliza-gray-primary;
+    border: 1px solid $status-inactive;
+  }
+  
+  &--pending {
+    background-color: rgba($status-pending, 0.1);
+    color: $status-pending;
+    border: 1px solid rgba($status-pending, 0.2);
+  }
+  
+  &--error {
+    background-color: rgba($status-error, 0.1);
+    color: $status-error;
+    border: 1px solid rgba($status-error, 0.2);
+  }
+}
+
+// ========================================
+// FORM ELEMENTS EXAMPLE
+// ========================================
+
+.contabiliza-input {
+  background-color: $input-background;
+  border: 1px solid $input-border-color;
+  border-radius: $border-radius-md;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  transition: $transition-colors;
+  
+  &:focus {
+    outline: none;
+    border-color: $input-border-focus;
+    box-shadow: 0 0 0 3px rgba($input-border-focus, 0.1);
+  }
+  
+  &--error {
+    border-color: $status-error;
+    
+    &:focus {
+      border-color: $status-error;
+      box-shadow: 0 0 0 3px rgba($status-error, 0.1);
+    }
+  }
+}
+
+// ========================================
+// NAVIGATION EXAMPLE
+// ========================================
+
+.contabiliza-navbar {
+  background-color: $navbar-bg;
+  border-bottom: 1px solid $navbar-border;
+  height: $navbar-height;
+  display: flex;
+  align-items: center;
+  padding: 0 $spacing-6;
+  
+  &__brand {
+    color: $brand-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+  }
+  
+  &__nav-item {
+    color: $navbar-text;
+    text-decoration: none;
+    padding: $spacing-2 $spacing-4;
+    border-radius: $border-radius-md;
+    transition: $transition-colors;
+    
+    &:hover {
+      background-color: rgba($brand-primary, 0.1);
+      color: $navbar-text-active;
+    }
+    
+    &--active {
+      color: $navbar-text-active;
+      background-color: rgba($brand-primary, 0.1);
+    }
+  }
+}
+
+// ========================================
+// CARD EXAMPLE WITH BRAND COLORS
+// ========================================
+
+.contabiliza-card {
+  background-color: $color-white;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+  border: 1px solid $contabiliza-gray-light;
+  
+  &__header {
+    border-bottom: 1px solid $contabiliza-gray-light;
+    padding-bottom: $spacing-4;
+    margin-bottom: $spacing-4;
+    
+    h3 {
+      color: $brand-primary;
+      margin: 0;
+      font-weight: $font-weight-semibold;
+    }
+  }
+  
+  &--highlighted {
+    border-left: 4px solid $brand-primary;
+  }
+  
+  &--success {
+    border-left: 4px solid $brand-success;
+  }
+  
+  &--warning {
+    border-left: 4px solid $brand-secondary;
+  }
+}
