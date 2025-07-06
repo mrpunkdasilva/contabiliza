@@ -14,7 +14,7 @@ const goToLogin = () => {
 
 <template>
   <main class="home-view">
-    <img src="../assets/img/contabiliza.horizontal.png" alt="Contabiliza - Contabilidade e Finanças pessoais."/>
+    <img src="../assets/img/contabiliza.branding.png" alt="Contabiliza - Contabilidade e Finanças pessoais."/>
 
     <p>Comece a <strong>controlar</strong> seus ganhos hoje mesmo!</p>
 
