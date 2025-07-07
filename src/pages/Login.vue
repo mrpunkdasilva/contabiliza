@@ -1,5 +1,9 @@
 <template>
-  <AuthenticationLayout>
+  <AuthenticationLayout
+      origin="login"
+      destination="signup"
+      handle="handleLogin"
+  >
     <fieldset class="input-fields">
       <div>
         <label class="sr-only" for="email">
@@ -47,18 +51,24 @@ export default {
     UserIcon,
     KeyRoundIcon,
   },
+
   data() {
     return {
       username: '',
       password: '',
     };
   },
-  methods: {
-    handleLogin() {
+
+  setup() {
+    const handleLogin = () => {
       console.log('Login attempt with:', this.username, this.password);
       // Implement your login logic here
-    },
-  },
+    }
+
+    return {
+      handleLogin,
+    }
+  }
 };
 </script>
 

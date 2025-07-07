@@ -1,5 +1,9 @@
 <template>
-  <AuthenticationLayout>
+  <AuthenticationLayout
+      :handle="handleSignup"
+      destination="login"
+      origin="signup"
+  >
     <fieldset class="input-fields">
       <div>
         <label class="sr-only" for="username">
@@ -56,10 +60,20 @@ import KeyRoundIcon from "../components/icons-interface/KeyRoundIcon.vue";
 export default {
   name: 'Signup',
   components: {KeyRoundIcon, MailIcon, UserIcon, AuthenticationLayout, InputComponent},
+
   data() {
     return {};
   },
 
+  setup() {
+    const handleSignup = () => {
+      alert("Signup")
+    };
+
+    return {
+      handleSignup,
+    };
+  }
 };
 </script>
 
