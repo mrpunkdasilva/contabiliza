@@ -59,6 +59,11 @@ export default {
     &::placeholder {
       color: var(--color-white-15);
     }
+
+    &:not(:placeholder-shown) {
+      background-color: $color-gray-800;
+      color: $color-white;
+    }
   }
 }
 </style>
