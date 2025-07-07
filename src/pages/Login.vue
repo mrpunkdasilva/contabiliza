@@ -1,37 +1,48 @@
 <template>
-  <div class="login-page">
-    <div class="login-container">
-      <h2>Login</h2>
-      <form @submit.prevent="handleLogin">
-        <div class="input-group">
-          <UserIcon class="icon" />
-          <InputComponent
-            type="text"
-            placeholder="Username"
-            v-model="username"
-          />
-        </div>
-        <div class="input-group">
-          <KeyRoundIcon class="icon" />
-          <InputComponent
-            type="password"
+  <AuthenticationLayout>
+    <fieldset class="input-fields">
+      <div>
+        <label class="sr-only" for="email">
+          Email
+        </label>
+        <MailIcon/>
+        <InputComponent
+            placeholder="Email"
+            type="email"
+            id="email"
+            name="email"
+            required
+        />
+      </div>
+
+      <div>
+        <label class="sr-only" for="password">
+          Password
+        </label>
+        <KeyRoundIcon/>
+        <InputComponent
             placeholder="Password"
-            v-model="password"
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  </div>
+            type="password"
+            id="password"
+            name="password"
+            required
+        />
+      </div>
+    </fieldset>
+  </AuthenticationLayout>
 </template>
 
 <script>
-import { InputComponent } from '../components';
-import { UserIcon, KeyRoundIcon } from '../components/icons-interface';
+import {InputComponent} from '../components';
+import {UserIcon, KeyRoundIcon} from '../components/icons-interface';
+import AuthenticationLayout from "../Layouts/AuthenticationLayout.vue";
+import MailIcon from "../components/icons-interface/MailIcon.vue";
 
 export default {
   name: 'LoginPage',
   components: {
+    MailIcon,
+    AuthenticationLayout,
     InputComponent,
     UserIcon,
     KeyRoundIcon,
@@ -52,6 +63,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../variables';
 
 </style>
