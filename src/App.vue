@@ -98,4 +98,25 @@ body {
   border-color: variables.$color-blue-200;
 }
 
+.error-message {
+  color: red;
+  font-size: 0.875em;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.button-error {
+  @include button;
+  background-color: variables.$color-error;
+  animation: shake 0.5s;
+  border-color: variables.$color-error-dark;
+  color: variables.$color-white;
+}
+
+
+
 </style>
