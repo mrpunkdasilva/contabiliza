@@ -1,24 +1,59 @@
 <script>
+import {useRouter} from "vue-router";
+
 export default {
-  name: "AuthenticationLayout"
+  name: "AuthenticationLayout",
+  props: {
+    origin: {
+      type: String,
+      required: true,
+    },
+    handle: {
+      type: Function,
+      required: true,
+    },
+    destination: {
+      type: String,
+      required: true,
+    }
+  },
+  setup(props) {
+    const router = useRouter();
+
+    const goToDestination = () => {
+      router.push(props.destination);
+    };
+
+    return {
+      goToDestination,
+      handle: props.handle,
+    };
+  }
 }
 </script>
-
 
 <template>
   <main>
     <img src="../assets/img/contabiliza.branding.png" alt="Contabiliza Brand"/>
 
     <form>
-
       <slot></slot>
 
       <fieldset class="buttons-actions">
-        <button class="button-primary">Sign up</button>
-        <button class="button-secondary">Login</button>
+        <button
+            class="button-primary"
+            @click.prevent="handle"
+        >
+          {{ origin }}
+        </button>
+        <button
+            class="button-secondary"
+            @click.prevent="goToDestination"
+        >
+          {{ destination }}
+        </button>
       </fieldset>
     </form>
-
   </main>
 </template>
 
