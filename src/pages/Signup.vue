@@ -5,6 +5,7 @@
         <label class="sr-only" for="username">
           Username
         </label>
+        <UserIcon/>
         <InputComponent
             placeholder="Username"
             type="text"
@@ -18,6 +19,7 @@
         <label class="sr-only" for="email">
           Email
         </label>
+        <MailIcon/>
         <InputComponent
             placeholder="Email"
             type="email"
@@ -31,6 +33,7 @@
         <label class="sr-only" for="password">
           Password
         </label>
+        <KeyRoundIcon/>
         <InputComponent
             placeholder="Password"
             type="password"
@@ -46,10 +49,13 @@
 <script>
 import InputComponent from "../components/Forms/InputComponent.vue";
 import AuthenticationLayout from "../Layouts/AuthenticationLayout.vue";
+import UserIcon from "../components/icons-interface/UserIcon.vue";
+import MailIcon from "../components/icons-interface/MailIcon.vue";
+import KeyRoundIcon from "../components/icons-interface/KeyRoundIcon.vue";
 
 export default {
   name: 'Signup',
-  components: {AuthenticationLayout, InputComponent},
+  components: {KeyRoundIcon, MailIcon, UserIcon, AuthenticationLayout, InputComponent},
   data() {
     return {};
   },
