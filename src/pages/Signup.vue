@@ -14,16 +14,18 @@
         />
       </div>
 
-      <label class="sr-only" for="email">
-        Email
-      </label>
-      <InputComponent
-          placeholder="Email"
-          type="email"
-          id="email"
-          name="email"
-          required
-      />
+      <div>
+        <label class="sr-only" for="email">
+          Email
+        </label>
+        <InputComponent
+            placeholder="Email"
+            type="email"
+            id="email"
+            name="email"
+            required
+        />
+      </div>
 
       <div>
         <label class="sr-only" for="password">
