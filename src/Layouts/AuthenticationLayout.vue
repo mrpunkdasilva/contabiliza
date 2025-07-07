@@ -1,5 +1,30 @@
+<template>
+  <main>
+    <img src="../assets/img/contabiliza.branding.png" alt="Contabiliza Brand"/>
+
+    <form>
+      <slot></slot>
+
+      <fieldset class="buttons-actions">
+        <button
+            :class="{'button-primary': !hasErrors, 'button-error': hasErrors}"
+            @click.prevent="handle"
+        >
+          {{ origin }}
+        </button>
+        <button
+            class="button-secondary"
+            @click.prevent="goToDestination"
+        >
+          {{ destination }}
+        </button>
+      </fieldset>
+    </form>
+  </main>
+</template>
+
 <script>
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 
 export default {
   name: "AuthenticationLayout",
@@ -15,6 +40,10 @@ export default {
     destination: {
       type: String,
       required: true,
+    },
+    hasErrors: {
+      type: Boolean,
+      default: false,
     }
   },
   setup(props) {
@@ -31,31 +60,6 @@ export default {
   }
 }
 </script>
-
-<template>
-  <main>
-    <img src="../assets/img/contabiliza.branding.png" alt="Contabiliza Brand"/>
-
-    <form>
-      <slot></slot>
-
-      <fieldset class="buttons-actions">
-        <button
-            class="button-primary"
-            @click.prevent="handle"
-        >
-          {{ origin }}
-        </button>
-        <button
-            class="button-secondary"
-            @click.prevent="goToDestination"
-        >
-          {{ destination }}
-        </button>
-      </fieldset>
-    </form>
-  </main>
-</template>
 
 <style lang="scss">
 @use "../variables" as *;
