@@ -40,10 +40,26 @@ main {
     fieldset {
       border: none;
 
+      div {
+        position: relative;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 30%;
+          left: $spacing-4;
+        }
+      }
+
       &.input-fields {
         display: flex;
         flex-direction: column;
         gap: $spacing-4;
+
+        input {
+          text-indent: calc($spacing-6 * 1.3);
+        }
       }
 
       &.buttons-actions {
