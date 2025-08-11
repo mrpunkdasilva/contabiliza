@@ -2,7 +2,7 @@
   <AuthenticationLayout
       origin="login"
       destination="signup"
-      handle="handleLogin"
+      :handle="handleLogin"
   >
     <fieldset class="input-fields">
       <div>

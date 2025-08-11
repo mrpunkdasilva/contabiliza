@@ -3,6 +3,8 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+console.log('Home component mounted!');
+
 const goToSignup = () => {
   router.push('/signup');
 };
