@@ -5,12 +5,13 @@ const Validator = (data, validations) => {
     const fieldValidations = validations[fieldName];
     const value = data[fieldName];
 
-    for (const validation of fieldValidations) {
-      const [strategy, ...args] = validation;
-      const errorMessage = strategy(value, fieldName, ...args);
+    for (const strategyInfo of fieldValidations) {
+      const [Strategy, ...args] = strategyInfo;
+      const errorMessage = Strategy(value, ...args);
+
       if (errorMessage) {
         errors[fieldName] = errorMessage;
-        break; // Stop on first error for this field
+        break;
       }
     }
   }

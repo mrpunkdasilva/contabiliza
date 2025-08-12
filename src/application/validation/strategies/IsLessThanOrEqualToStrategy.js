@@ -1,8 +1,8 @@
-const IsLessThanOrEqualToStrategy = (value, fieldName, comparisonValue, comparisonFieldName) => {
-  if (value > comparisonValue) {
-    return `Não pode ser maior que ${comparisonFieldName}.`;
+const IsLessThanOrEqualToStrategy = (value, fieldName, otherValue, otherFieldName) => {
+  if (value > otherValue) {
+    return `${fieldName} deve ser menor ou igual a ${otherFieldName}.`;
   }
-  return null;
+  return undefined;
 };
 
 export default IsLessThanOrEqualToStrategy;
