@@ -5,7 +5,7 @@ import { InputComponent } from '../components';
 import { KeyRoundIcon } from '../components/icons-interface';
 import AuthenticationLayout from "../Layouts/AuthenticationLayout.vue";
 import MailIcon from "../components/icons-interface/MailIcon.vue";
-import AuthValidator from '../application/validator/Auth.js'; // Importar o validador
+import AuthValidator from '../application/auth/Auth.js'; // Importar o validador
 
 const router = useRouter();
 
