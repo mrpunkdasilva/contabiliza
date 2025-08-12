@@ -1,19 +1,54 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import InputComponent from '../components/Forms/InputComponent.vue'; // Reutilizando o InputComponent
 
 const monthlySalary = ref(0);
 const daysInMonth = ref(30); // Valor padrão
 const daysNotWorked = ref(0);
 const amountToReceive = ref(0);
+const errors = reactive({});
+
+const validateInputs = () => {
+  // Clear previous errors
+  Object.keys(errors).forEach(key => delete errors[key]);
+
+  let isValid = true;
+
+  // Validate monthlySalary
+  if (monthlySalary.value <= 0) {
+    errors.monthlySalary = 'O salário mensal deve ser um valor positivo.';
+    isValid = false;
+  }
+
+  // Validate daysInMonth
+  if (daysInMonth.value <= 0 || !Number.isInteger(daysInMonth.value)) {
+    errors.daysInMonth = 'Os dias no mês devem ser um número inteiro positivo.';
+    isValid = false;
+  } else if (daysInMonth.value < 28 || daysInMonth.value > 31) {
+    errors.daysInMonth = 'Os dias no mês devem estar entre 28 e 31.';
+    isValid = false;
+  }
+
+  // Validate daysNotWorked
+  if (daysNotWorked.value < 0 || !Number.isInteger(daysNotWorked.value)) {
+    errors.daysNotWorked = 'Os dias não trabalhados devem ser um número inteiro não negativo.';
+    isValid = false;
+  } else if (daysNotWorked.value > daysInMonth.value) {
+    errors.daysNotWorked = 'Os dias não trabalhados não podem ser maiores que os dias no mês.';
+    isValid = false;
+  }
+
+  return isValid;
+};
 
 const calculateSalary = () => {
-  const daysWorked = daysInMonth.value - daysNotWorked.value;
-  if (daysInMonth.value > 0 && daysWorked >= 0) {
-    amountToReceive.value = (daysWorked / daysInMonth.value) * monthlySalary.value;
-  } else {
-    amountToReceive.value = 0; // Ou alguma mensagem de erro
+  if (!validateInputs()) {
+    amountToReceive.value = 0; // Reset result if validation fails
+    return;
   }
+
+  const daysWorked = daysInMonth.value - daysNotWorked.value;
+  amountToReceive.value = (daysWorked / daysInMonth.value) * monthlySalary.value;
 };
 </script>
 
@@ -29,6 +64,7 @@ const calculateSalary = () => {
         v-model.number="monthlySalary"
         placeholder="Ex: 500"
       />
+      <span v-if="errors.monthlySalary" class="error-message">{{ errors.monthlySalary }}</span>
     </div>
 
     <div class="input-group">
@@ -39,6 +75,7 @@ const calculateSalary = () => {
         v-model.number="daysInMonth"
         placeholder="Ex: 30 ou 31"
       />
+      <span v-if="errors.daysInMonth" class="error-message">{{ errors.daysInMonth }}</span>
     </div>
 
     <div class="input-group">
@@ -49,6 +86,7 @@ const calculateSalary = () => {
         v-model.number="daysNotWorked"
         placeholder="Ex: 13"
       />
+      <span v-if="errors.daysNotWorked" class="error-message">{{ errors.daysNotWorked }}</span>
     </div>
 
     <button @click="calculateSalary" class="button-primary">Calcular</button>
@@ -132,6 +170,12 @@ const calculateSalary = () => {
     h2 {
       @include mixins.heading(variables.$font-size-2xl, variables.$font-weight-bold, variables.$color-success); // Usar mixin e cor de sucesso
     }
+  }
+
+  .error-message {
+    color: variables.$color-error; // Cor vermelha para mensagens de erro
+    font-size: variables.$font-size-sm; // Tamanho de fonte menor
+    margin-top: variables.$spacing-1; // Pequena margem superior
   }
 }
 </style>
