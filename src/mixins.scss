@@ -1,0 +1,33 @@
+@use './variables.scss' as variables;
+
+@mixin heading($font-size, $font-weight, $color) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+@mixin button {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid variables.$color-white-primary;
+  border-bottom: solid 5px;
+  width: 200px;
+  height: 60px;
+
+  &:hover {
+    opacity: 0.9;
+    transition: 0.95s ease-in-out;
+    transform: translate(0px, -3px);
+  }
+}
+
+@mixin paragraph {
+  font-size: 16px;
+  color: variables.$color-white-primary;
+  line-height: 1.5;
+}
