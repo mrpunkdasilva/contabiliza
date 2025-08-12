@@ -6,6 +6,7 @@ import IsPositiveNumberStrategy from '../application/validation/strategies/IsPos
 import IsIntegerStrategy from '../application/validation/strategies/IsIntegerStrategy.js';
 import IsWithinRangeStrategy from '../application/validation/strategies/IsWithinRangeStrategy.js';
 import IsLessThanOrEqualToStrategy from '../application/validation/strategies/IsLessThanOrEqualToStrategy.js';
+import IsGreaterThanOrEqualToStrategy from '../application/validation/strategies/IsGreaterThanOrEqualToStrategy.js';
 
 const monthlySalary = ref(0);
 const daysInMonth = ref(30);
@@ -35,6 +36,9 @@ const calculateSalary = () => {
     ],
   };
 
+  for (const key in errors) {
+    delete errors[key];
+  }
   const validationErrors = Validator(data, validations);
   Object.assign(errors, validationErrors);
 
