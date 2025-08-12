@@ -65,7 +65,7 @@ import AuthenticationLayout from "../Layouts/AuthenticationLayout.vue";
 import UserIcon from "../components/icons-interface/UserIcon.vue";
 import MailIcon from "../components/icons-interface/MailIcon.vue";
 import KeyRoundIcon from "../components/icons-interface/KeyRoundIcon.vue";
-import AuthValidator from "../application/validator/Auth.js";
+import AuthValidator from "../application/auth/Auth.js";
 
 export default {
   name: 'Signup',
