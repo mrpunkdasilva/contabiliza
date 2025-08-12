@@ -5,7 +5,7 @@ import { InputComponent } from '../components';
 import { KeyRoundIcon } from '../components/icons-interface';
 import AuthenticationLayout from "../Layouts/AuthenticationLayout.vue";
 import MailIcon from "../components/icons-interface/MailIcon.vue";
-import AuthValidator from '../application/auth/Auth.js'; // Importar o validador
+import LoginValidator from '../application/auth/LoginValidator.js'; // Importar o validador de Login
 
 const router = useRouter();
 
@@ -17,7 +17,7 @@ const handleLogin = () => {
   // Limpar erros anteriores
   Object.keys(errors).forEach(key => delete errors[key]);
 
-  const validationErrors = AuthValidator({ email: email.value, password: password.value });
+  const validationErrors = LoginValidator({ email: email.value, password: password.value });
 
   if (Object.keys(validationErrors).length > 0) {
     Object.assign(errors, validationErrors);
