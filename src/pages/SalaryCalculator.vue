@@ -19,7 +19,7 @@ const calculateSalary = () => {
 
 <template>
   <div class="salary-calculator-container">
-    <h1>Calculadora de Salário Proporcional</h1>
+    <h1>Contabiliza: Calculadora de Salário Proporcional</h1>
 
     <div class="input-group">
       <label for="monthlySalary">Salário Mensal (R$):</label>
