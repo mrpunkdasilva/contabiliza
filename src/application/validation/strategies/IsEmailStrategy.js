@@ -1,6 +1,6 @@
 const IsEmailStrategy = (value, fieldName) => {
   if (!/\S+@\S+\.\S+/.test(value)) {
-    return `${fieldName} é inválido.`;
+    return 'Formato de e-mail inválido.';
   }
   return null;
 };
