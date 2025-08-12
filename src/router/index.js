@@ -4,6 +4,7 @@ import About from '../pages/About.vue';
 import Signup from '../pages/Signup.vue';
 import Login from '../pages/Login.vue';
 import Dashboard from '../pages/Dashboard.vue';
+import SalaryCalculator from '../pages/SalaryCalculator.vue'; // Importar o novo componente
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
+  },
+  {
+    path: '/salary-calculator',
+    name: 'SalaryCalculator',
+    component: SalaryCalculator,
   },
 ];
 
