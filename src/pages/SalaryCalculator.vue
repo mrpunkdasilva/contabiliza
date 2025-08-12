@@ -1,49 +1,45 @@
 <script setup>
 import { ref, reactive } from 'vue';
-import InputComponent from '../components/Forms/InputComponent.vue'; // Reutilizando o InputComponent
+import InputComponent from '../components/Forms/InputComponent.vue';
+import Validator from '../application/validation/Validator.js';
+import IsPositiveNumberStrategy from '../application/validation/strategies/IsPositiveNumberStrategy.js';
+import IsIntegerStrategy from '../application/validation/strategies/IsIntegerStrategy.js';
+import IsWithinRangeStrategy from '../application/validation/strategies/IsWithinRangeStrategy.js';
+import IsLessThanOrEqualToStrategy from '../application/validation/strategies/IsLessThanOrEqualToStrategy.js';
 
 const monthlySalary = ref(0);
-const daysInMonth = ref(30); // Valor padrão
+const daysInMonth = ref(30);
 const daysNotWorked = ref(0);
 const amountToReceive = ref(0);
 const errors = reactive({});
 
-const validateInputs = () => {
-  // Clear previous errors
-  Object.keys(errors).forEach(key => delete errors[key]);
-
-  let isValid = true;
-
-  // Validate monthlySalary
-  if (monthlySalary.value <= 0) {
-    errors.monthlySalary = 'O salário mensal deve ser um valor positivo.';
-    isValid = false;
-  }
-
-  // Validate daysInMonth
-  if (daysInMonth.value <= 0 || !Number.isInteger(daysInMonth.value)) {
-    errors.daysInMonth = 'Os dias no mês devem ser um número inteiro positivo.';
-    isValid = false;
-  } else if (daysInMonth.value < 28 || daysInMonth.value > 31) {
-    errors.daysInMonth = 'Os dias no mês devem estar entre 28 e 31.';
-    isValid = false;
-  }
-
-  // Validate daysNotWorked
-  if (daysNotWorked.value < 0 || !Number.isInteger(daysNotWorked.value)) {
-    errors.daysNotWorked = 'Os dias não trabalhados devem ser um número inteiro não negativo.';
-    isValid = false;
-  } else if (daysNotWorked.value > daysInMonth.value) {
-    errors.daysNotWorked = 'Os dias não trabalhados não podem ser maiores que os dias no mês.';
-    isValid = false;
-  }
-
-  return isValid;
-};
-
 const calculateSalary = () => {
-  if (!validateInputs()) {
-    amountToReceive.value = 0; // Reset result if validation fails
+  const data = {
+    monthlySalary: monthlySalary.value,
+    daysInMonth: daysInMonth.value,
+    daysNotWorked: daysNotWorked.value,
+  };
+
+  const validations = {
+    monthlySalary: [
+      [IsPositiveNumberStrategy, 'Salário Mensal'],
+    ],
+    daysInMonth: [
+      [IsPositiveNumberStrategy, 'Dias no Mês'],
+      [IsIntegerStrategy, 'Dias no Mês'],
+      [IsWithinRangeStrategy, 'Dias no Mês', 28, 31],
+    ],
+    daysNotWorked: [
+      [IsIntegerStrategy, 'Dias Não Trabalhados'],
+      [IsLessThanOrEqualToStrategy, 'Dias Não Trabalhados', daysInMonth.value, 'Dias no Mês'],
+    ],
+  };
+
+  const validationErrors = Validator(data, validations);
+  Object.assign(errors, validationErrors);
+
+  if (Object.keys(validationErrors).length > 0) {
+    amountToReceive.value = 0;
     return;
   }
 
